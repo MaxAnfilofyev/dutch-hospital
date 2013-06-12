@@ -1,8 +1,18 @@
 /****** Script for calculating the average volume and standard deviation of a given activity for a given diagnosis *****/
 
-SELECT
+INSERT INTO [dbo].[avg and stdev]
+           ([Diagnosis_code]
+           ,[Activity_code]
+           ,[activity_count_total]
+           ,[Diagnosis_code_count]
+           ,[activity_count_avg]
+           ,[activity_count_stdev])
+     VALUES
+           (SELECT
 	[DIAGNOSIS_CODE]
 	,[ACTIVITY_CODE]
+	,ACTIVITY_COUNT_TOTAL
+	,[DIAGNOSIS_CODE_COUNT]
 	,ACTIVITY_COUNT_TOTAL/[DIAGNOSIS_CODE_COUNT] AS ACTIVITY_COUNT_AVG
 	,CASE WHEN [DIAGNOSIS_CODE_COUNT]>1 THEN SQRT(([DIAGNOSIS_CODE_COUNT]-ACTIVITY_COUNT_TOTAL)*(ACTIVITY_COUNT_AVG*ACTIVITY_COUNT_AVG)/([DIAGNOSIS_CODE_COUNT]-1)) ELSE 0 END AS ACTIVITY_COUNT_STDEV
 	FROM
@@ -30,4 +40,4 @@ SELECT
 			DTC.[DIAGNOSIS_CODE]
 			,[ACTIVITY_CODE]
 			,[DIAGNOSIS_CODE_COUNT]		
-) R
+) R)
