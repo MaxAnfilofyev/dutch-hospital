@@ -9,7 +9,7 @@ INSERT INTO [dbo].[avg and stdev]
            ,[Diagnosis_code_count]
            ,[activity_count_avg]
            ,[activity_count_stdev])
-     VALUES
+     
            (
            
 SELECT
@@ -51,6 +51,5 @@ SELECT
 			,[ACTIVITY_CODE]
 			,[DIAGNOSIS_CODE_COUNT]		
 ) R
-order by ACTIVITY_COUNT_TOTAL*([DIAGNOSIS_CODE_COUNT]-ACTIVITY_COUNT_TOTAL)/([DIAGNOSIS_CODE_COUNT]*[DIAGNOSIS_CODE_COUNT])
 
 )
