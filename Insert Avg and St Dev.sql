@@ -1,7 +1,9 @@
 /****** Script for calculating the average volume and standard deviation of a given activity for a given diagnosis *****/
 
 INSERT INTO [dbo].[avg and stdev]
-           ([Diagnosis_code]
+           (
+           Specialist
+           ,[Diagnosis_code]
            ,[Activity_code]
            ,[activity_count_total]
            ,[Diagnosis_code_count]
